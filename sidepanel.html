@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>PageLens</title>
+  <link rel="stylesheet" href="sidepanel.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="dot"></span>
+      <span class="brand-name">PageLens</span>
+    </div>
+    <button id="settingsBtn" class="icon-btn" title="Settings">⚙</button>
+  </header>
+
+  <section id="settingsPanel" class="settings-panel hidden">
+    <label for="apiKeyInput">Anthropic API key</label>
+    <input type="password" id="apiKeyInput" placeholder="sk-ant-..." />
+    <label for="modelSelect">Model</label>
+    <select id="modelSelect">
+      <option value="claude-sonnet-5">Claude Sonnet 5 (recommended)</option>
+      <option value="claude-haiku-4-5-20251001">Claude Haiku 4.5 (fastest / cheapest)</option>
+      <option value="claude-opus-4-8">Claude Opus 4.8 (most capable)</option>
+    </select>
+    <div class="settings-actions">
+      <button id="saveSettingsBtn" class="primary-btn">Save</button>
+      <span id="saveStatus" class="save-status"></span>
+    </div>
+    <p class="hint">
+      Your key is stored locally in this browser (chrome.storage) and is sent
+      directly from your browser to Anthropic's API. It never passes through
+      any other server.
+    </p>
+  </section>
+
+  <section id="noKeyNotice" class="notice hidden">
+    Add your Anthropic API key in <button id="openSettingsLink" class="link-btn">settings</button> to get started.
+  </section>
+
+  <section class="quick-actions">
+    <button class="quick-btn" data-prompt="Summarize this page in a short paragraph, then list the 3-5 most important points as bullets.">Summarize page</button>
+    <button class="quick-btn" data-prompt="Explain what this page is about as if to someone with no background on the topic.">Explain simply</button>
+    <button class="quick-btn" data-prompt="List anything on this page that looks like a catch, cost, commitment, or thing a careful reader should notice before proceeding (fees, deadlines, fine print, auto-renewals, data collection, etc). If there's nothing notable, say so.">What should I watch for?</button>
+  </section>
+
+  <main id="chatLog" class="chat-log">
+    <div class="empty-state">
+      <p>PageLens reads the current tab and answers questions about it.</p>
+      <p class="empty-sub">It's read-only: it never clicks, types, or submits anything on your behalf.</p>
+    </div>
+  </main>
+
+  <footer class="composer">
+    <textarea id="questionInput" placeholder="Ask about this page…" rows="2"></textarea>
+    <button id="sendBtn" class="primary-btn" title="Send">Ask</button>
+  </footer>
+
+  <script src="sidepanel.js"></script>
+</body>
+</html>
