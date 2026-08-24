@@ -1,0 +1,195 @@
+:root {
+  --bg: #ffffff;
+  --bg-alt: #f6f7fb;
+  --border: #e3e5ec;
+  --text: #1c1e26;
+  --text-muted: #6b7080;
+  --accent: #3c46b4;
+  --accent-hover: #2f3894;
+  --user-bubble: #eef0fb;
+  --assistant-bubble: #f6f7fb;
+  --danger: #b3271f;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-size: 13px;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+}
+
+.brand { display: flex; align-items: center; gap: 8px; font-weight: 600; font-size: 14px; }
+.dot { width: 9px; height: 9px; border-radius: 50%; background: var(--accent); display: inline-block; }
+
+.icon-btn {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 16px;
+  color: var(--text-muted);
+  padding: 4px 6px;
+  border-radius: 6px;
+}
+.icon-btn:hover { background: var(--bg-alt); color: var(--text); }
+
+.hidden { display: none !important; }
+
+.settings-panel {
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg-alt);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.settings-panel label { font-weight: 600; font-size: 12px; margin-top: 4px; }
+.settings-panel input, .settings-panel select {
+  padding: 7px 8px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-size: 12px;
+  background: var(--bg);
+  color: var(--text);
+}
+.settings-actions { display: flex; align-items: center; gap: 10px; margin-top: 4px; }
+.save-status { font-size: 11px; color: var(--text-muted); }
+.hint { font-size: 11px; color: var(--text-muted); line-height: 1.4; margin: 6px 0 2px; }
+
+.notice {
+  padding: 8px 14px;
+  background: #fff6e5;
+  border-bottom: 1px solid var(--border);
+  font-size: 12px;
+  color: #6b4c00;
+}
+.link-btn {
+  border: none;
+  background: none;
+  color: var(--accent);
+  text-decoration: underline;
+  cursor: pointer;
+  font-size: 12px;
+  padding: 0;
+}
+
+.quick-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+}
+.quick-btn {
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text);
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 11.5px;
+  cursor: pointer;
+}
+.quick-btn:hover { border-color: var(--accent); color: var(--accent); }
+
+.chat-log {
+  flex: 1;
+  overflow-y: auto;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.empty-state {
+  color: var(--text-muted);
+  text-align: center;
+  margin-top: 30px;
+  line-height: 1.5;
+}
+.empty-sub { font-size: 11.5px; }
+
+.msg {
+  max-width: 92%;
+  padding: 9px 11px;
+  border-radius: 10px;
+  line-height: 1.45;
+  white-space: pre-wrap;
+}
+.msg.user {
+  align-self: flex-end;
+  background: var(--user-bubble);
+}
+.msg.assistant {
+  align-self: flex-start;
+  background: var(--assistant-bubble);
+  border: 1px solid var(--border);
+}
+.msg.error {
+  align-self: flex-start;
+  background: #fdeceb;
+  border: 1px solid #f3c6c1;
+  color: var(--danger);
+}
+.msg.pending { color: var(--text-muted); font-style: italic; }
+
+.page-tag {
+  align-self: center;
+  font-size: 10.5px;
+  color: var(--text-muted);
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
+  padding: 3px 9px;
+  border-radius: 999px;
+  max-width: 92%;
+  text-align: center;
+  word-break: break-word;
+}
+
+.composer {
+  display: flex;
+  gap: 8px;
+  padding: 10px 14px;
+  border-top: 1px solid var(--border);
+  flex-shrink: 0;
+}
+.composer textarea {
+  flex: 1;
+  resize: none;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 8px 10px;
+  font-size: 12.5px;
+  font-family: inherit;
+}
+.composer textarea:focus, .settings-panel input:focus, .settings-panel select:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.primary-btn {
+  background: var(--accent);
+  color: white;
+  border: none;
+  padding: 0 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 12.5px;
+  font-weight: 600;
+}
+.primary-btn:hover { background: var(--accent-hover); }
+.primary-btn:disabled { background: #a9adc7; cursor: not-allowed; }
