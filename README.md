@@ -1,3 +1,5 @@
+<img width="1896" height="1032" alt="Screenshot 2026-08-24 175957" src="https://github.com/user-attachments/assets/281db631-4bc3-4c35-8459-2e5a811f8223" />
+
 # PageLens — a read-only AI page explainer
 
 PageLens is a Chrome extension that lets you ask an AI questions about the
